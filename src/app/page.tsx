@@ -1,103 +1,187 @@
-import Image from "next/image";
+import Header from '@/components/Header';
+import ArticleMetalink from '@/components/ArticleMetalink';
+import EditorSection from '@/components/EditorSection';
+import FeaturedArticle from '@/components/FeaturedArticle';
+import { mockArticles } from '@/data/mockData';
+import Link from 'next/link';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  // Find the featured article
+  const featuredArticle = mockArticles.find(article => article.featured);
+  // Get remaining articles
+  const regularArticles = mockArticles.filter(article => !article.featured);
+  
+  // Community spotlight content (not from mockData)
+  const communitySpotlight = {
+    title: "Community Spotlight: Token Holders Making a Difference",
+    excerpt: "How TEdition1 token holders are using governance proposals to shape the future of publishing.",
+    author: "Community Team",
+    date: "Apr 9, 2025"
+  };
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  return (
+    <div className="min-h-screen">
+      <Header />
+      
+      <main className="container mx-auto px-4 py-8">
+        {/* Featured Article */}
+        {featuredArticle && featuredArticle.image && (
+          <div className="mb-10">
+            <FeaturedArticle 
+              title={featuredArticle.title}
+              excerpt={featuredArticle.excerpt}
+              author={featuredArticle.author}
+              date={featuredArticle.date}
+              image={featuredArticle.image}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          </div>
+        )}
+        
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {/* Left column - Articles */}
+          <div className="md:col-span-1 space-y-6">
+            {regularArticles.length > 0 && (
+              <ArticleMetalink 
+                key={regularArticles[0].id}
+                title={regularArticles[0].title}
+                excerpt={regularArticles[0].excerpt}
+                author={regularArticles[0].author}
+                date={regularArticles[0].date}
+              />
+            )}
+            
+            {/* Extra article - trending topic */}
+            <div className="nyt-card">
+              <h3 className="headline text-base">Trending: NFTs for Publication Rights</h3>
+              <p className="article-excerpt text-sm mb-2">
+                New models for distributing ownership of syndication and translation rights.
+              </p>
+              <div className="flex justify-between text-xs article-meta">
+                <span className="font-semibold">Tech Team</span>
+                <span>Apr 8, 2025</span>
+              </div>
+            </div>
+            
+            {/* Extra article - market update */}
+            <div className="nyt-card">
+              <h3 className="headline text-base">DFT Market Update</h3>
+              <p className="article-excerpt text-sm mb-2">
+                TEdition1 token up 12% this week as new governance proposals gain traction.
+              </p>
+              <div className="flex justify-between text-xs article-meta">
+                <span className="font-semibold">Finance Desk</span>
+                <span>Apr 7, 2025</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Middle columns - Editor Section */}
+          <div className="md:col-span-2">
+            <EditorSection />
+            
+            {/* Articles Grid Below Editors */}
+            <div className="mt-6">
+              <div className="grid grid-cols-2 gap-6">
+                {/* Article 1 */}
+                {regularArticles.length > 3 && (
+                  <ArticleMetalink 
+                    key={regularArticles[3].id}
+                    title={regularArticles[3].title}
+                    excerpt={regularArticles[3].excerpt}
+                    author={regularArticles[3].author}
+                    date={regularArticles[3].date}
+                  />
+                )}
+                
+                {/* Article 2 */}
+                {regularArticles.length > 4 && (
+                  <ArticleMetalink 
+                    key={regularArticles[4].id}
+                    title={regularArticles[4].title}
+                    excerpt={regularArticles[4].excerpt}
+                    author={regularArticles[4].author}
+                    date={regularArticles[4].date}
+                  />
+                )}
+              </div>
+              
+              {/* Community Spotlight - Full Width */}
+              <div className="mt-6 pt-3 border-t border-double border-gray-300">
+                <h3 className="headline text-base mb-2">{communitySpotlight.title}</h3>
+                <p className="article-excerpt text-sm mb-2">
+                  {communitySpotlight.excerpt}
+                </p>
+                <div className="flex justify-between text-xs article-meta">
+                  <span className="font-semibold">{communitySpotlight.author}</span>
+                  <span>{communitySpotlight.date}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Right column - Articles */}
+          <div className="md:col-span-1 space-y-6">
+            {regularArticles.length > 1 && (
+              <ArticleMetalink 
+                key={regularArticles[1].id}
+                title={regularArticles[1].title}
+                excerpt={regularArticles[1].excerpt}
+                author={regularArticles[1].author}
+                date={regularArticles[1].date}
+              />
+            )}
+            
+            {regularArticles.length > 2 && (
+              <ArticleMetalink 
+                key={regularArticles[2].id}
+                title={regularArticles[2].title}
+                excerpt={regularArticles[2].excerpt}
+                author={regularArticles[2].author}
+                date={regularArticles[2].date}
+              />
+            )}
+            
+            {/* Writer of the week */}
+            <div className="nyt-card">
+              <h3 className="headline text-base border-b border-gray-100 pb-1 mb-2">Writer of the Week</h3>
+              <div className="flex mb-2">
+                <div className="text-lg mr-2">✍️</div>
+                <div>
+                  <p className="font-semibold text-sm">Maya Peterson</p>
+                  <p className="text-xs article-meta">Contributing Writer</p>
+                </div>
+              </div>
+              <p className="article-excerpt text-sm">
+                Maya's series on DeFi transparency earned the most community votes this month.
+              </p>
+            </div>
+            
+            {/* Upcoming event */}
+            <div className="nyt-card">
+              <h3 className="headline text-base">Upcoming Event</h3>
+              <p className="font-semibold article-excerpt text-sm mb-1">
+                Town Hall: Future of TEdition
+              </p>
+              <p className="text-xs mb-2">
+                Join us April 20th for a discussion on governance proposals.
+              </p>
+              <div className="text-xs italic">
+                DFT holders only • Virtual
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Navigation to Page 2 */}
+        <div className="mt-12 text-center border-t border-b border-gray-300 py-3">
+          <Link 
+            href="/page-2" 
+            className="text-gray-900 font-semibold hover:underline article-title"
           >
-            Read our docs
-          </a>
+            VIEW MORE ARTICLES →
+          </Link>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
