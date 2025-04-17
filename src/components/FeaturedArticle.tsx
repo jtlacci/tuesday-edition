@@ -13,7 +13,7 @@ export default function FeaturedArticle({ title, excerpt, author, date, image }:
         <div className="md:w-2/3">
           <h2 className="featured-headline mb-3">{title}</h2>
           <p className="subheadline mb-3 text-base">{excerpt}</p>
-          <p className="article-excerpt text-base mb-4">The publishing industry stands at the threshold of a remarkable transformation, driven by blockchain technology's unprecedented capabilities. Web3 publishing promises to solve long-standing issues affecting both creators and consumers.</p>
+          <p className="article-excerpt text-base mb-4">The publishing industry stands at the threshold of a remarkable transformation, driven by blockchain technology&apos;s unprecedented capabilities. Web3 publishing promises to solve long-standing issues affecting both creators and consumers.</p>
           <div className="flex justify-between text-sm article-meta border-t border-gray-200 pt-2">
             <span className="font-semibold">{author}</span>
             <span>{date}</span>

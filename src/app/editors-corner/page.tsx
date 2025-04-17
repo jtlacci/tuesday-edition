@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 import { mockArticles, mockTweets } from '@/data/mockData';
 import Header from '@/components/Header';
 import TokenBalance from '@/components/TokenBalance';
@@ -31,7 +30,7 @@ export default function EditorsCornerPage() {
           <div className="border-b border-double border-gray-300 pb-6 mb-8">
             <div className="flex justify-between items-start">
               <div className="flex-1">
-                <h1 className="text-3xl font-serif font-bold text-center mb-2">Editors' Corner</h1>
+                <h1 className="text-3xl font-serif font-bold text-center mb-2">Editors&apos; Corner</h1>
                 <p className="text-center text-gray-600 italic font-serif">
                   Where our editorial team selects content for the next edition
                 </p>

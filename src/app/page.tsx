@@ -152,7 +152,7 @@ export default function Home() {
                 </div>
               </div>
               <p className="article-excerpt text-sm">
-                Maya's series on DeFi transparency earned the most community votes this month.
+                Maya&apos;s series on DeFi transparency earned the most community votes this month.
               </p>
             </div>
             

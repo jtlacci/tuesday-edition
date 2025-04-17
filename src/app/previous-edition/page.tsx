@@ -33,7 +33,7 @@ export default function PreviousEditionPage() {
           <div className="mb-8 pb-6 border-b border-gray-300">
             <h2 className="text-2xl font-serif font-bold mb-3">Introducing The Tuesday Edition</h2>
             <p className="article-excerpt mb-4">
-              We're proud to announce the evolution of our publication into the new Tuesday Edition. 
+              We&apos;re proud to announce the evolution of our publication into the new Tuesday Edition. 
               Starting next week, our main publication day will move from Monday to Tuesday, 
               with expanded content and new features for our readers and token holders.
             </p>
@@ -45,17 +45,17 @@ export default function PreviousEditionPage() {
           </div>
           
           <div className="mb-8">
-            <h3 className="text-xl font-serif font-bold mb-3">What's Changing</h3>
+            <h3 className="text-xl font-serif font-bold mb-3">What&apos;s Changing</h3>
             <p className="article-excerpt mb-4">
               The new Tuesday Edition will feature an enhanced editorial process, with community 
               members and token holders playing a more significant role in content curation. 
-              Our editor's corner will now include a voting system for submissions, ensuring the 
+              Our editor&apos;s corner will now include a voting system for submissions, ensuring the 
               highest quality content makes it to publication.
             </p>
             <p className="article-excerpt">
               Token economics have also been upgraded, with new incentives for regular contributors 
               and more transparent revenue sharing. The contentcoin model has proved successful in our 
-              first 42 issues, and we're refining it further based on community feedback.
+              first 42 issues, and we&apos;re refining it further based on community feedback.
             </p>
           </div>
         </div>

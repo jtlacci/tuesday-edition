@@ -203,7 +203,7 @@ export default function AboutPage() {
             
             <div className="article-excerpt space-y-4 mt-4">
               <p>
-                Every week, writers submit articles through our submission portal. These submissions go to our Editors' Corner, 
+                Every week, writers submit articles through our submission portal. These submissions go to our Editors&apos; Corner, 
                 where both our editorial team and token holders can review and vote on them.
               </p>
               
@@ -221,7 +221,7 @@ export default function AboutPage() {
               <p>
                 <strong>Curators Are Token Holders:</strong> The curation team for each edition automatically consists of the 
                 10 largest $TEdition contentcoin holders from the previous issue. As a token holder, your curation power grows with your stake. 
-                Become a top holder, and you'll join the curation team with direct control over which content is featured in the app. This creates 
+                Become a top holder, and you&apos;ll join the curation team with direct control over which content is featured in the app. This creates 
                 a powerful incentive to acquire and hold tokens, as the largest stakeholders gain the most influence over the content discovery process.
               </p>
               

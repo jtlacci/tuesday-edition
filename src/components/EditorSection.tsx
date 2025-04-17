@@ -28,7 +28,7 @@ export default function EditorSection() {
             <span className="font-semibold text-sm headline">{mockEditors[0].name}</span>
             <span className="text-xs ml-2 article-meta">Chief Editor</span>
           </div>
-          <p className="text-sm mt-1 article-excerpt">"This week we examine new community governance models in decentralized publishing."</p>
+          <p className="text-sm mt-1 article-excerpt">&quot;This week we examine new community governance models in decentralized publishing.&quot;</p>
         </div>
         <div className="pb-3">
           <div className="flex items-center">
@@ -36,7 +36,7 @@ export default function EditorSection() {
             <span className="font-semibold text-sm headline">{mockEditors[1].name}</span>
             <span className="text-xs ml-2 article-meta">Tech Editor</span>
           </div>
-          <p className="text-sm mt-1 article-excerpt">"Token holders will gain access to new features in our upcoming platform update."</p>
+          <p className="text-sm mt-1 article-excerpt">&quot;Token holders will gain access to new features in our upcoming platform update.&quot;</p>
         </div>
       </div>
     </div>
